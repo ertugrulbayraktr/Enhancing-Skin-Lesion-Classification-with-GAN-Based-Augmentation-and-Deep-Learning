@@ -9,7 +9,7 @@
 
 An intelligent web application that uses a Squeeze-and-Excitation ResNet (SEResNet) model to classify skin lesions into 5 categories with 97.23% accuracy.
 
-![Project Banner](docs/screenshots/banner.png) _(screenshot placeholder)_
+![Project Banner](docs/screenshots/home.png)
 
 ---
 
@@ -463,16 +463,17 @@ Use the interactive docs at http://localhost:8000/docs:
 
 ## 📸 Screenshots
 
-_Add your screenshots here:_
-
 ### Home Page
 ![Home](docs/screenshots/home.png)
 
 ### Upload Section
 ![Upload](docs/screenshots/upload.png)
 
-### Results
-![Results](docs/screenshots/results.png)
+### Analysis Results
+![Results - Before/After Hair Removal](docs/screenshots/results.png)
+
+### Prediction Results
+![Results - Classification](docs/screenshots/results2.png)
 
 ---
 
