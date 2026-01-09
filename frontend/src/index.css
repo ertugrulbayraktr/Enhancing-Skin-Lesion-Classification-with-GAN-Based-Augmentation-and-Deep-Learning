@@ -8,21 +8,25 @@
   }
   
   body {
-    @apply bg-slate-50 text-slate-900;
+    @apply bg-dark-bg text-slate-100;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-primary to-accent-teal text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200;
+    @apply px-6 py-3 bg-gradient-to-r from-primary to-accent-teal text-white font-semibold rounded-lg shadow-glow hover:shadow-glow-lg transform hover:-translate-y-0.5 transition-all duration-300 hover:scale-105;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-primary border-2 border-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-200;
+    @apply px-6 py-3 bg-dark-card text-primary border-2 border-primary font-semibold rounded-lg hover:bg-primary hover:text-white hover:shadow-glow transition-all duration-300;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-200;
+    @apply bg-dark-card rounded-xl shadow-xl p-6 border border-dark-border hover:border-primary/30 hover:shadow-glow transition-all duration-300 backdrop-blur-sm;
+  }
+  
+  .card-glass {
+    @apply bg-dark-card/50 backdrop-blur-md rounded-xl shadow-2xl p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300;
   }
   
   .section {
@@ -31,5 +35,31 @@
   
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(to right, #0891b2, #14b8a6);
+    padding: 2px;
+    border-radius: 12px;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(45deg, #0891b2, #14b8a6, #0891b2);
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: gradient 3s ease infinite;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent-teal to-primary bg-clip-text text-transparent bg-200 animate-gradient;
   }
 }

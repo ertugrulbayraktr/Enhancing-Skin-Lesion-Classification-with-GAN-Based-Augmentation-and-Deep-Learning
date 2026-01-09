@@ -13,28 +13,28 @@ const LoadingSpinner = ({ stage = 'preparing', message = null }) => {
     <div className="flex flex-col items-center justify-center py-8">
       {/* Spinner */}
       <div className="relative w-16 h-16 mb-4">
-        <div className="absolute top-0 left-0 w-full h-full border-4 border-slate-200 rounded-full"></div>
-        <div className="absolute top-0 left-0 w-full h-full border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="absolute top-0 left-0 w-full h-full border-4 border-dark-border rounded-full"></div>
+        <div className="absolute top-0 left-0 w-full h-full border-4 border-primary border-t-transparent rounded-full animate-spin shadow-glow"></div>
       </div>
 
       {/* Message */}
-      <p className="text-slate-600 font-medium text-center">{displayMessage}</p>
+      <p className="text-slate-300 font-medium text-center">{displayMessage}</p>
 
       {/* Stage indicator */}
       <div className="mt-4 flex gap-2">
         <span
           className={`w-2 h-2 rounded-full transition-all ${
-            stage === 'preparing' ? 'bg-primary w-6' : 'bg-slate-300'
+            stage === 'preparing' ? 'bg-primary w-6 shadow-glow' : 'bg-dark-border'
           }`}
         ></span>
         <span
           className={`w-2 h-2 rounded-full transition-all ${
-            stage === 'removing_hair' ? 'bg-primary w-6' : 'bg-slate-300'
+            stage === 'removing_hair' ? 'bg-primary w-6 shadow-glow' : 'bg-dark-border'
           }`}
         ></span>
         <span
           className={`w-2 h-2 rounded-full transition-all ${
-            stage === 'analyzing' ? 'bg-primary w-6' : 'bg-slate-300'
+            stage === 'analyzing' ? 'bg-primary w-6 shadow-glow' : 'bg-dark-border'
           }`}
         ></span>
       </div>

@@ -9,7 +9,7 @@ import { EXAMPLE_IMAGES } from '../utils/constants';
 const ExampleImages = ({ onSelectExample }) => {
   return (
     <div className="mt-8">
-      <h3 className="text-lg font-semibold text-slate-700 mb-4 text-center">
+      <h3 className="text-lg font-semibold text-white mb-4 text-center">
         Or try with an example image:
       </h3>
       <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
@@ -17,7 +17,7 @@ const ExampleImages = ({ onSelectExample }) => {
           <button
             key={example.id}
             onClick={() => onSelectExample(example.path)}
-            className="group relative aspect-square rounded-lg overflow-hidden border-2 border-slate-200 hover:border-primary transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1"
+            className="group relative aspect-square rounded-lg overflow-hidden border-2 border-dark-border hover:border-primary transition-all duration-300 hover:shadow-glow transform hover:-translate-y-1"
           >
             <img
               src={example.path}

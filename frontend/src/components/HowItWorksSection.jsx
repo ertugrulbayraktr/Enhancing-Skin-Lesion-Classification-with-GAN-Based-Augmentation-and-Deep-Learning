@@ -23,7 +23,7 @@ const HowItWorksSection = () => {
     {
       number: '2',
       title: 'Hair Removal',
-      description: 'Automatic removal of hair artifacts using morphological operations',
+      description: 'Black-hat transform isolates hair, followed by inpainting reconstruction',
       icon: (
         <path
           strokeLinecap="round"
@@ -49,7 +49,7 @@ const HowItWorksSection = () => {
     {
       number: '4',
       title: 'AI Analysis',
-      description: 'Deep learning model processes the image through 50+ layers',
+      description: 'Enhanced SE-ResNet with multi-stage attention and ACGAN-augmented training',
       icon: (
         <path
           strokeLinecap="round"
@@ -75,14 +75,14 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section bg-slate-50">
+    <section id="how-it-works" className="section bg-dark-bg/50">
       <div className="container-custom">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
               How It Works
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Our AI-powered analysis pipeline in 5 simple steps
             </p>
           </div>
@@ -104,7 +104,7 @@ const HowItWorksSection = () => {
 
                   {/* Icon */}
                   <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 rounded-lg bg-white shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-lg bg-dark-card border border-dark-border shadow-glow flex items-center justify-center hover:border-primary/50 transition-all">
                       <svg
                         className="w-6 h-6 text-primary"
                         fill="none"
@@ -118,8 +118,8 @@ const HowItWorksSection = () => {
 
                   {/* Content */}
                   <div className="text-center">
-                    <h3 className="font-semibold text-slate-800 mb-2">{step.title}</h3>
-                    <p className="text-sm text-slate-600">{step.description}</p>
+                    <h3 className="font-semibold text-white mb-2">{step.title}</h3>
+                    <p className="text-sm text-slate-400">{step.description}</p>
                   </div>
                 </div>
               ))}
@@ -144,13 +144,13 @@ const HowItWorksSection = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-slate-800">Model Architecture</h3>
+              <h3 className="text-2xl font-semibold text-white">Model Architecture</h3>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-slate-700 mb-3">SEResNet Features</h4>
-                <ul className="space-y-2 text-slate-600">
+                <h4 className="font-semibold text-slate-200 mb-3">Enhanced SE-ResNet Features</h4>
+                <ul className="space-y-2 text-slate-300">
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -161,49 +161,49 @@ const HowItWorksSection = () => {
                     <svg className="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Squeeze-and-Excitation blocks</span>
+                    <span>Multi-stage SE blocks (Layer 1-4)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Channel attention mechanism</span>
+                    <span>Residual SE connections</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>25.2M trainable parameters</span>
+                    <span>Better gradient flow & stability</span>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-semibold text-slate-700 mb-3">Training Details</h4>
-                <ul className="space-y-2 text-slate-600">
+                <h4 className="font-semibold text-slate-200 mb-3">GAN-Based Augmentation</h4>
+                <ul className="space-y-2 text-slate-300">
                   <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
-                    <span>Dataset: HAM10000</span>
+                    <span><strong>ACGAN:</strong> Class-conditional generation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
-                    <span>150 training epochs</span>
+                    <span>Targets minority classes (MEL, AKIEC)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
-                    <span>Data augmentation (ACGAN)</span>
+                    <span>Addresses extreme class imbalance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-primary mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
-                    <span>Class weighting for imbalance</span>
+                    <span>HAM10000 dataset (150 epochs)</span>
                   </li>
                 </ul>
               </div>

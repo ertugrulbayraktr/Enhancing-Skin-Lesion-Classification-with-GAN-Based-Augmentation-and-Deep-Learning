@@ -19,10 +19,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#', icon: '🏠' },
-    { label: 'About', href: '#about', icon: 'ℹ️' },
-    { label: 'How It Works', href: '#how-it-works', icon: '⚙️' },
-    { label: 'Classes', href: '#classes', icon: '📚' },
+    { label: 'Home', href: '#' },
+    { label: 'About', href: '#about' },
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Classes', href: '#classes' },
   ];
 
   const scrollToSection = (href) => {
@@ -56,8 +56,8 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/80 backdrop-blur-md shadow-md'
-            : 'bg-white/60 backdrop-blur-sm'
+            ? 'bg-dark-bg/90 backdrop-blur-md shadow-glow border-b border-dark-border'
+            : 'bg-dark-bg/70 backdrop-blur-sm'
         }`}
       >
         <div className="container-custom">
@@ -65,16 +65,18 @@ const Navbar = () => {
             {/* Logo/Title */}
             <button
               onClick={() => scrollToSection('#')}
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-3 group"
             >
-              <span className="text-2xl md:text-3xl group-hover:scale-110 transition-transform">
-                🔬
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent-teal flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-all duration-300">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              </div>
+              <span className="font-bold text-lg md:text-xl text-gradient hidden sm:block">
+                Enhancing Skin Lesion Classification
               </span>
-              <span className="font-bold text-lg md:text-xl text-slate-800 hidden sm:block">
-                Skin Cancer AI
-              </span>
-              <span className="font-bold text-lg text-slate-800 sm:hidden">
-                SCA
+              <span className="font-bold text-lg text-gradient sm:hidden">
+                ESLC
               </span>
             </button>
 
@@ -84,9 +86,8 @@ const Navbar = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="px-3 lg:px-4 py-2 text-slate-600 hover:text-primary font-medium transition-colors rounded-lg hover:bg-primary/5"
+                  className="px-3 lg:px-4 py-2 text-slate-300 hover:text-primary font-medium transition-all duration-200 rounded-lg hover:bg-dark-card"
                 >
-                  <span className="mr-1">{link.icon}</span>
                   {link.label}
                 </button>
               ))}
@@ -94,16 +95,16 @@ const Navbar = () => {
               {/* CTA Button */}
               <button
                 onClick={scrollToUpload}
-                className="ml-2 px-4 lg:px-6 py-2 bg-gradient-to-r from-primary to-accent-teal text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+                className="ml-2 btn-primary"
               >
-                📤 Upload Image
+                Upload Image
               </button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-slate-600 hover:text-primary transition-colors"
+              className="md:hidden p-2 text-slate-300 hover:text-primary transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -156,7 +157,7 @@ const Navbar = () => {
 
         {/* Menu Panel */}
         <div
-          className={`absolute top-16 right-0 w-64 bg-white shadow-xl rounded-bl-2xl transform transition-transform duration-300 ${
+          className={`absolute top-16 right-0 w-64 bg-dark-card border border-dark-border shadow-glow rounded-bl-2xl transform transition-transform duration-300 backdrop-blur-md ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -165,9 +166,8 @@ const Navbar = () => {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="w-full flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-primary hover:bg-primary/5 font-medium transition-all rounded-lg text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-primary hover:bg-dark-hover font-medium transition-all rounded-lg text-left"
               >
-                <span className="text-xl">{link.icon}</span>
                 {link.label}
               </button>
             ))}
@@ -175,9 +175,9 @@ const Navbar = () => {
             {/* Mobile CTA */}
             <button
               onClick={scrollToUpload}
-              className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-primary to-accent-teal text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+              className="w-full mt-4 btn-primary"
             >
-              📤 Upload Image
+              Upload Image
             </button>
           </div>
         </div>

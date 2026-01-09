@@ -49,6 +49,11 @@ const PredictionChart = ({ probabilities }) => {
         display: false,
       },
       tooltip: {
+        backgroundColor: '#1e293b',
+        titleColor: '#f1f5f9',
+        bodyColor: '#cbd5e1',
+        borderColor: '#0891b2',
+        borderWidth: 1,
         callbacks: {
           label: function (context) {
             return `${context.parsed.y}%`;
@@ -61,15 +66,19 @@ const PredictionChart = ({ probabilities }) => {
         beginAtZero: true,
         max: 100,
         ticks: {
+          color: '#94a3b8',
           callback: function (value) {
             return value + '%';
           },
         },
         grid: {
-          color: '#e2e8f0',
+          color: '#334155',
         },
       },
       x: {
+        ticks: {
+          color: '#94a3b8',
+        },
         grid: {
           display: false,
         },

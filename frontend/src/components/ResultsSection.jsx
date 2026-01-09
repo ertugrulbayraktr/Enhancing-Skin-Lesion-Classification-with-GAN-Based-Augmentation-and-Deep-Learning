@@ -15,10 +15,10 @@ const ResultsSection = ({ results, originalImage }) => {
   const riskColors = RISK_COLORS[classInfo.riskLevel];
 
   return (
-    <section className="section bg-slate-50">
+    <section className="section bg-dark-bg/50">
       <div className="container-custom">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-10 text-center">
             Analysis Results
           </h2>
 
@@ -31,11 +31,11 @@ const ResultsSection = ({ results, originalImage }) => {
           )}
 
           {/* Main Result Card */}
-          <div className="card mt-8">
+          <div className="card-glass mt-8 shadow-glow-lg">
             {/* Predicted Class */}
-            <div className="text-center mb-8 pb-8 border-b border-slate-200">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full mb-4">
-                <span className="text-sm font-medium text-slate-600">Predicted Class</span>
+            <div className="text-center mb-8 pb-8 border-b border-dark-border">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full mb-4 border border-primary/30">
+                <span className="text-sm font-medium text-slate-200">Predicted Class</span>
               </div>
               
               <h3
@@ -56,7 +56,7 @@ const ResultsSection = ({ results, originalImage }) => {
               {/* Confidence */}
               <div className="flex items-center justify-center gap-2">
                 <svg
-                  className="w-5 h-5 text-slate-500"
+                  className="w-5 h-5 text-primary"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -68,31 +68,31 @@ const ResultsSection = ({ results, originalImage }) => {
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span className="text-2xl font-bold text-slate-700">
+                <span className="text-2xl font-bold text-white">
                   {(results.confidence * 100).toFixed(2)}%
                 </span>
-                <span className="text-slate-500">Confidence</span>
+                <span className="text-slate-400">Confidence</span>
               </div>
 
               {/* Progress Bar */}
               <div className="mt-4 max-w-md mx-auto">
-                <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                <div className="w-full h-3 bg-dark-border rounded-full overflow-hidden shadow-inner">
                   <div
-                    className={`h-full ${riskColors.badge} transition-all duration-1000 ease-out`}
+                    className={`h-full ${riskColors.badge} transition-all duration-1000 ease-out shadow-glow`}
                     style={{ width: `${results.confidence * 100}%` }}
                   ></div>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-slate-600 mt-6 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-slate-300 mt-6 max-w-2xl mx-auto leading-relaxed">
                 {classInfo.description}
               </p>
             </div>
 
             {/* Probabilities Chart */}
             <div className="mt-8">
-              <h4 className="text-xl font-semibold text-slate-700 mb-6 text-center">
+              <h4 className="text-xl font-semibold text-white mb-6 text-center">
                 All Class Probabilities
               </h4>
               <PredictionChart probabilities={results.probabilities} />
@@ -107,17 +107,17 @@ const ResultsSection = ({ results, originalImage }) => {
                   return (
                     <div
                       key={className}
-                      className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
+                      className="flex items-center justify-between p-4 bg-dark-bg/50 rounded-lg hover:bg-dark-hover border border-dark-border hover:border-primary/30 transition-all duration-200"
                     >
                       <div className="flex items-center gap-3">
                         <div
-                          className="w-3 h-3 rounded-full"
+                          className="w-3 h-3 rounded-full shadow-glow"
                           style={{ backgroundColor: info.color }}
                         ></div>
-                        <span className="font-medium text-slate-700">{info.name}</span>
-                        <span className="text-sm text-slate-500">({className})</span>
+                        <span className="font-medium text-white">{info.name}</span>
+                        <span className="text-sm text-slate-400">({className})</span>
                       </div>
-                      <span className="font-bold text-slate-700">
+                      <span className="font-bold text-white">
                         {(prob * 100).toFixed(2)}%
                       </span>
                     </div>
@@ -126,10 +126,10 @@ const ResultsSection = ({ results, originalImage }) => {
             </div>
 
             {/* Model Info */}
-            <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="mt-8 p-4 bg-primary/20 border border-primary/40 rounded-lg backdrop-blur-sm">
               <div className="flex items-start gap-3">
                 <svg
-                  className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0"
+                  className="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -142,10 +142,10 @@ const ResultsSection = ({ results, originalImage }) => {
                   />
                 </svg>
                 <div>
-                  <p className="text-sm text-blue-800 font-medium">
-                    Model: SEResNet • Accuracy: {results.model_info?.accuracy ? (results.model_info.accuracy * 100).toFixed(2) : '97.23'}%
+                  <p className="text-sm text-slate-200 font-medium">
+                    Model: Enhanced SE-ResNet + ACGAN • Accuracy: {results.model_info?.accuracy ? (results.model_info.accuracy * 100).toFixed(2) : '97.23'}%
                   </p>
-                  <p className="text-xs text-blue-600 mt-1">
+                  <p className="text-xs text-slate-400 mt-1">
                     This is an AI prediction. Always consult a healthcare professional for medical advice.
                   </p>
                 </div>
@@ -154,7 +154,7 @@ const ResultsSection = ({ results, originalImage }) => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
             <button
               onClick={() => window.location.reload()}
               className="btn-primary"

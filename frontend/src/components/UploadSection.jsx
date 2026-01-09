@@ -93,14 +93,14 @@ const UploadSection = ({ onImageSelect, selectedImage, onClearResults }) => {
   };
 
   return (
-    <section id="upload-section" className="section bg-white">
+    <section id="upload-section" className="section bg-dark-bg">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
               Upload Image for Analysis
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-300">
               Upload a dermoscopy image or select an example to get started
             </p>
           </div>
@@ -110,16 +110,16 @@ const UploadSection = ({ onImageSelect, selectedImage, onClearResults }) => {
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
-            className={`relative border-3 border-dashed rounded-2xl p-8 md:p-12 transition-all duration-200 ${
+            className={`relative border-3 border-dashed rounded-2xl p-8 md:p-12 transition-all duration-300 backdrop-blur-sm ${
               isDragging
-                ? 'border-primary bg-primary/5 scale-105'
-                : 'border-slate-300 hover:border-primary hover:bg-slate-50'
+                ? 'border-primary bg-primary/20 scale-105 shadow-glow-lg'
+                : 'border-dark-border hover:border-primary bg-dark-card/50 hover:shadow-glow'
             }`}
           >
             {!selectedImage ? (
               <div className="text-center">
                 {/* Upload Icon */}
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent-teal mb-6">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent-teal mb-6 shadow-glow animate-glow-pulse">
                   <svg
                     className="w-10 h-10 text-white"
                     fill="none"
@@ -135,10 +135,10 @@ const UploadSection = ({ onImageSelect, selectedImage, onClearResults }) => {
                   </svg>
                 </div>
 
-                <h3 className="text-xl font-semibold text-slate-700 mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   {isDragging ? 'Drop your image here' : 'Drag & drop your image'}
                 </h3>
-                <p className="text-slate-500 mb-6">
+                <p className="text-slate-400 mb-6">
                   or click to browse your files
                 </p>
 
@@ -149,7 +149,7 @@ const UploadSection = ({ onImageSelect, selectedImage, onClearResults }) => {
                   Select Image
                 </button>
 
-                <p className="text-sm text-slate-400 mt-4">
+                <p className="text-sm text-slate-500 mt-4">
                   Supported: JPEG, PNG • Max size: 10MB
                 </p>
 
@@ -168,10 +168,10 @@ const UploadSection = ({ onImageSelect, selectedImage, onClearResults }) => {
                   <img
                     src={selectedImage}
                     alt="Selected"
-                    className="w-full rounded-xl shadow-lg"
+                    className="w-full rounded-xl shadow-glow-lg border-2 border-primary/50"
                   />
                   <div className="absolute top-3 right-3 flex gap-2">
-                    <span className="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full shadow">
+                    <span className="px-3 py-1 bg-green-500 text-white text-sm font-semibold rounded-full shadow-glow">
                       Ready
                     </span>
                   </div>
@@ -191,8 +191,8 @@ const UploadSection = ({ onImageSelect, selectedImage, onClearResults }) => {
 
             {/* Error Message */}
             {error && (
-              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-red-700 text-sm text-center">{error}</p>
+              <div className="mt-4 p-4 bg-red-500/20 border border-red-500 rounded-lg backdrop-blur-sm">
+                <p className="text-red-300 text-sm text-center">{error}</p>
               </div>
             )}
           </div>

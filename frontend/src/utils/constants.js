@@ -119,12 +119,13 @@ export const LOADING_MESSAGES = {
 
 // Model information
 export const MODEL_INFO = {
-  name: 'SEResNet',
-  fullName: 'Squeeze-and-Excitation ResNet',
+  name: 'Enhanced SE-ResNet',
+  fullName: 'Enhanced SE-ResNet with Multi-Stage Integration',
   accuracy: 97.23,
   f1Score: 95.39,
   precision: 95.83,
   recall: 94.99,
+  augmentation: 'ACGAN-based Class-Conditional Generation',
 };
 
 // File upload constraints
