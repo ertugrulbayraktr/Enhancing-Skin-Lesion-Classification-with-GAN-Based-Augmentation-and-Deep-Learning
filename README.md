@@ -38,27 +38,27 @@ An intelligent full-stack web application that leverages Enhanced SE-ResNet arch
 ## ✨ Key Features
 
 ### 🎯 **Model & AI**
-- 🧠 **Enhanced SE-ResNet**: Multi-stage SE blocks with residual connections across Layer 1-4
-- 🎨 **ACGAN Augmentation**: Class-conditional generation targeting minority classes (MEL, AKIEC)
-- 🔬 **Advanced Preprocessing**: Black-hat transform + inpainting for hair artifact removal
-- 📊 **97.23% Accuracy**: State-of-the-art performance on HAM10000 dataset
-- ⚡ **Fast Inference**: <3 seconds analysis time
+- **Enhanced SE-ResNet**: Multi-stage SE blocks with residual connections across Layer 1-4
+- **ACGAN Augmentation**: Class-conditional generation targeting minority classes (MEL, AKIEC)
+- **Advanced Preprocessing**: Black-hat transform + inpainting for hair artifact removal
+- **97.23% Accuracy**: State-of-the-art performance on HAM10000 dataset
+- **Fast Inference**: <3 seconds analysis time
 
 ### 🎨 **User Interface**
-- 🌙 **Dark Theme**: Modern glassmorphism design with glow effects
-- 📱 **Fully Responsive**: Optimized for desktop, tablet, and mobile
-- 🖼️ **Drag & Drop Upload**: Intuitive image upload interface
-- 📈 **Interactive Visualizations**: Chart.js powered probability charts
-- 🔄 **Before/After Comparison**: Hair removal process visualization
-- ✨ **Smooth Animations**: 300ms transitions with gradient effects
+- **Dark Theme**: Modern glassmorphism design with glow effects
+- **Fully Responsive**: Optimized for desktop, tablet, and mobile
+- **Drag & Drop Upload**: Intuitive image upload interface
+- **Interactive Visualizations**: Chart.js powered probability charts
+- **Before/After Comparison**: Hair removal process visualization
+- **Smooth Animations**: 300ms transitions with gradient effects
 
 ### 🛠️ **Technical**
-- 🚀 **Modern Stack**: React 19 + FastAPI + PyTorch 2.9
-- 🎯 **Type Safety**: Pydantic schemas + Python type hints
-- 🔒 **Secure**: File validation, size limits, CORS configuration
-- 📖 **Auto Documentation**: Swagger UI + ReDoc
-- 🎭 **Singleton Pattern**: Efficient model loading
-- 🌐 **RESTful API**: Clean endpoint design
+- **Modern Stack**: React 19 + FastAPI + PyTorch 2.9
+- **Type Safety**: Pydantic schemas + Python type hints
+- **Secure**: File validation, size limits, CORS configuration
+- **Auto Documentation**: Swagger UI + ReDoc
+- **Singleton Pattern**: Efficient model loading
+- **RESTful API**: Clean endpoint design
 
 ---
 
@@ -199,8 +199,8 @@ Enhanced SE-ResNet + ACGAN: 97.23% accuracy ⭐
 
 ```bash
 # Option A: Clone with Git
-git clone https://github.com/yourusername/skin-cancer-detection-ai.git
-cd skin-cancer-detection-ai
+git clone https://github.com/ertugrulbayraktr/Enhancing-Skin-Lesion-Classification-with-GAN-Based-Augmentation-and-Deep-Learning.git
+cd Enhancing-Skin-Lesion-Classification-with-GAN-Based-Augmentation-and-Deep-Learning
 
 # Option B: Download ZIP and extract
 ```
@@ -374,116 +374,6 @@ skin-cancer-detection/
 ├── README.md                        # This file
 └── QUICKSTART.md                    # Quick setup guide (Turkish)
 ```
-
----
-
-## 📡 API Documentation
-
-### **Base URL:** `http://localhost:8000/api`
-
-### **Endpoints:**
-
-#### **1. Health Check**
-```http
-GET /api/health
-```
-Check if API and model are loaded properly.
-
-**Response:**
-```json
-{
-  "status": "ok",
-  "model_loaded": true,
-  "message": "API is running and model is loaded"
-}
-```
-
----
-
-#### **2. Model Information**
-```http
-GET /api/model-info
-```
-Get model architecture and performance metrics.
-
-**Response:**
-```json
-{
-  "model_name": "Enhanced SE-ResNet",
-  "num_classes": 5,
-  "input_size": [224, 224],
-  "accuracy": 0.9723,
-  "f1_score": 0.9539,
-  "precision": 0.9583,
-  "recall": 0.9499
-}
-```
-
----
-
-#### **3. Classes Information**
-```http
-GET /api/classes
-```
-Get information about all 5 skin lesion classes.
-
-**Response:**
-```json
-{
-  "classes": [
-    {
-      "index": 0,
-      "name": "NV",
-      "full_name": "Melanocytic Nevi",
-      "description": "Benign moles. Common skin lesions that are usually harmless.",
-      "risk_level": "Low"
-    },
-    ...
-  ]
-}
-```
-
----
-
-#### **4. Predict**
-```http
-POST /api/predict
-Content-Type: multipart/form-data
-
-Body:
-  file: <image_file> (JPEG/PNG, max 10MB)
-```
-Upload an image and get prediction results.
-
-**Example Response:**
-```json
-{
-  "predicted_class": "MEL",
-  "predicted_class_index": 1,
-  "confidence": 0.9523,
-  "probabilities": {
-    "NV": 0.0234,
-    "MEL": 0.9523,
-    "BKL": 0.0123,
-    "BCC": 0.0089,
-    "AKIEC": 0.0031
-  },
-  "processing": {
-    "hair_removed": true,
-    "processed_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ..."
-  },
-  "model_info": {
-    "accuracy": 0.9723,
-    "f1_score": 0.9539
-  }
-}
-```
-
-### **Interactive API Documentation**
-
-Visit these URLs when the backend is running:
-- **Swagger UI:** http://localhost:8000/docs (try endpoints interactively)
-- **ReDoc:** http://localhost:8000/redoc (alternative documentation)
 
 ---
 
@@ -665,201 +555,6 @@ class SEModule(nn.Module):
 
 ---
 
-## 🔧 Troubleshooting
-
-### **Backend Issues**
-
-#### ❌ **Problem: "Module not found" error**
-```bash
-# Solution: Reinstall dependencies
-cd backend
-pip install -r requirements.txt
-```
-
-#### ❌ **Problem: "Model file not found"**
-```bash
-# Solution: Verify model file exists
-# Windows:
-dir backend\models\SEResnet_model.pth
-# Linux/Mac:
-ls backend/models/SEResnet_model.pth
-
-# File should be ~97MB
-```
-
-#### ❌ **Problem: Port 8000 already in use**
-```bash
-# Solution A: Use different port
-uvicorn app.main:app --reload --port 8001
-# Then update frontend/src/services/api.js API_BASE_URL
-
-# Solution B: Kill process on port 8000 (Windows)
-netstat -ano | findstr :8000
-taskkill /PID <PID> /F
-
-# Solution B: Kill process on port 8000 (Linux/Mac)
-lsof -ti:8000 | xargs kill -9
-```
-
-#### ❌ **Problem: CORS errors in browser**
-```bash
-# Solution: Ensure backend is running on port 8000
-# Frontend expects: http://localhost:8000
-# Check browser console for exact error
-```
-
----
-
-### **Frontend Issues**
-
-#### ❌ **Problem: "npm command not found"**
-```bash
-# Solution: Install Node.js from nodejs.org
-# Verify installation:
-node --version
-npm --version
-```
-
-#### ❌ **Problem: Tailwind CSS not working**
-```bash
-# Solution: Clean reinstall
-cd frontend
-rm -rf node_modules package-lock.json
-npm install
-npm run dev
-```
-
-#### ❌ **Problem: Port 5173 already in use**
-```bash
-# Solution: Vite will automatically use next available port
-# Check terminal output for actual port number
-# Example: "http://localhost:5174"
-```
-
-#### ❌ **Problem: "Network Error" when analyzing**
-```bash
-# Solution: Verify backend is running
-# 1. Check http://localhost:8000/docs is accessible
-# 2. Check browser console for exact error
-# 3. Ensure no firewall blocking port 8000
-```
-
----
-
-### **General Issues**
-
-#### ❌ **Problem: Slow predictions (>5 seconds)**
-- **Reason:** Running on CPU (normal behavior)
-- **Solution:** 
-  - GPU will be faster but CPU works fine (~2-3 seconds)
-  - First prediction may be slower due to model loading
-  - Subsequent predictions will be faster
-
-#### ❌ **Problem: Out of memory error**
-- **Solution:**
-  - Close other applications
-  - Minimum 4GB RAM required
-  - If using GPU, ensure sufficient VRAM (2GB+)
-
-#### ❌ **Problem: Model loading fails**
-```bash
-# Check Python version
-python --version  # Should be 3.11+
-
-# Reinstall PyTorch
-pip uninstall torch torchvision
-pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cpu
-```
-
----
-
-## 🧪 Testing
-
-### **Quick Test (with Example Images)**
-
-1. Start both backend and frontend servers
-2. Navigate to http://localhost:5173
-3. Click on any example image below the upload area
-4. Click "Analyze Image"
-5. Wait 2-3 seconds for results
-6. Verify you see:
-   - ✅ Predicted class name
-   - ✅ Confidence percentage
-   - ✅ Bar chart with probabilities
-   - ✅ Before/after hair removal comparison
-
-### **API Testing (with curl)**
-
-```bash
-# Health check
-curl http://localhost:8000/api/health
-
-# Model info
-curl http://localhost:8000/api/model-info
-
-# Prediction (replace with actual image path)
-curl -X POST "http://localhost:8000/api/predict" \
-  -H "accept: application/json" \
-  -H "Content-Type: multipart/form-data" \
-  -F "file=@path/to/your/image.jpg"
-```
-
-### **API Testing (with Swagger UI)**
-
-1. Open http://localhost:8000/docs
-2. Click on **POST /api/predict**
-3. Click **"Try it out"**
-4. Click **"Choose File"** and select an image
-5. Click **"Execute"**
-6. View JSON response below
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! This project is developed as an educational tool, and we appreciate improvements.
-
-### **How to Contribute:**
-
-1. **Fork** the repository
-2. **Create** a feature branch
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. **Commit** your changes
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. **Push** to the branch
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. **Open** a Pull Request
-
-### **Contribution Guidelines:**
-
-- Follow existing code style
-- Add comments for complex logic
-- Update README if adding new features
-- Test thoroughly before submitting PR
-- Include screenshots for UI changes
-
----
-
-## 📝 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-### **MIT License Summary:**
-- ✅ Commercial use allowed
-- ✅ Modification allowed
-- ✅ Distribution allowed
-- ✅ Private use allowed
-- ⚠️ Liability limitation
-- ⚠️ No warranty
-
----
-
 ## ⚠️ Disclaimer
 
 ### **IMPORTANT: Medical Disclaimer**
@@ -897,116 +592,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 | 💻 **Software Engineer** | **Ertuğrul Bayraktar** | Full-stack development, web application, deployment, UI/UX design | [GitHub](https://github.com/ertugrulbayraktr) |
 | 🤖 **Artificial Intelligence Engineer** | **Ahmet Furkan Öztürk** | Enhanced SE-ResNet architecture, ACGAN/DCGAN implementation, model training | [GitHub](https://github.com/Furkan-21) |
 
-**Project Supervisor:** Assoc. Prof. Dr. Nazım Kemal ÜRE
-
 **🔬 Detailed Model Research & Training Repository:**  
 For in-depth information about the Enhanced SE-ResNet architecture, GAN training process, and experimental results, visit:  
 [Enhanced-SE-ResNet-ACGAN-Lesion-Classification](https://github.com/Furkan-21/Enhanced-SE-ResNet-ACGAN-Lesion-Classification)
-
-### **Acknowledgments**
-
-- 📊 **HAM10000 Dataset** - Harvard Dataverse
-  - Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset
-- 📚 **Research Papers:**
-  - ResNet: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
-  - SENet: [Squeeze-and-Excitation Networks](https://arxiv.org/abs/1709.01507)
-  - ACGAN: [Conditional Image Synthesis With Auxiliary Classifier GANs](https://arxiv.org/abs/1610.09585)
-- 🛠️ **Open Source Technologies:**
-  - PyTorch Team
-  - FastAPI Team
-  - React Team
-  - Tailwind CSS Team
-  - Chart.js Contributors
-
-### **Special Thanks**
-
-- Medical AI research community for inspiration
-- Open-source community for excellent tools and frameworks
-- Academic research community for valuable datasets and papers
-
----
-
-## 📚 References
-
-### **Academic Papers**
-
-1. **ResNet**
-   - He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. CVPR.
-   - [https://arxiv.org/abs/1512.03385](https://arxiv.org/abs/1512.03385)
-
-2. **Squeeze-and-Excitation Networks**
-   - Hu, J., Shen, L., & Sun, G. (2018). Squeeze-and-Excitation Networks. CVPR.
-   - [https://arxiv.org/abs/1709.01507](https://arxiv.org/abs/1709.01507)
-
-3. **ACGAN**
-   - Odena, A., Olah, C., & Shlens, J. (2017). Conditional Image Synthesis With Auxiliary Classifier GANs. ICML.
-   - [https://arxiv.org/abs/1610.09585](https://arxiv.org/abs/1610.09585)
-
-4. **HAM10000 Dataset**
-   - Tschandl, P., Rosendahl, C. & Kittler, H. (2018). The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions.
-   - [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T)
-
-### **Documentation**
-
-- **FastAPI:** [https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)
-- **PyTorch:** [https://pytorch.org/docs/](https://pytorch.org/docs/)
-- **React:** [https://react.dev/](https://react.dev/)
-- **Tailwind CSS:** [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
-
----
-
-## 🔗 Links
-
-- 📦 **Repository:** [GitHub - Skin Cancer Detection AI](https://github.com/yourusername/skin-cancer-detection-ai)
-- 📖 **Documentation:** [Full Documentation](https://github.com/yourusername/skin-cancer-detection-ai/wiki)
-- 🐛 **Issues:** [Report a Bug](https://github.com/yourusername/skin-cancer-detection-ai/issues)
-- 💡 **Feature Requests:** [Request a Feature](https://github.com/yourusername/skin-cancer-detection-ai/issues/new)
-
----
-
-## 📊 Project Status
-
-- ✅ **Backend:** Complete and stable
-- ✅ **Frontend:** Complete and stable
-- ✅ **Model:** Trained and deployed
-- ✅ **Documentation:** Complete
-- ✅ **Testing:** Functional testing complete
-- 🔄 **Future Work:** See [Issues](https://github.com/yourusername/skin-cancer-detection-ai/issues)
-
-### **Version History**
-
-- **v1.0.0** (Current) - Initial release
-  - Enhanced SE-ResNet implementation
-  - ACGAN-based augmentation
-  - Dark theme UI
-  - Complete documentation
-
----
-
-## 💻 Quick Start Commands
-
-```bash
-# Clone repository
-git clone https://github.com/yourusername/skin-cancer-detection-ai.git
-cd skin-cancer-detection-ai
-
-# Backend setup
-cd backend
-python -m venv venv
-venv\Scripts\activate  # Windows
-pip install -r requirements.txt
-python -m uvicorn app.main:app --reload --port 8000
-
-# Frontend setup (new terminal)
-cd frontend
-npm install
-npm run dev
-
-# Access application
-# Frontend: http://localhost:5173
-# Backend API: http://localhost:8000
-# API Docs: http://localhost:8000/docs
-```
 
 ---
 
